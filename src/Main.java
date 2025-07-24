@@ -26,13 +26,12 @@ public class Main {
         //task3
         int year = 1504;
         int yearBeginLeap = 1584;
-        boolean isYearBegin = year > yearBeginLeap;
-        boolean isEveryFourYear = year % 4 == 0;
-        boolean isEveryOneHundredYear = year % 100 != 0;
-        boolean isEveryFourHundredYear = year % 400 == 0;
-        if (isYearBegin && isEveryFourYear && isEveryOneHundredYear) {
-            System.out.println(year + " год является високосным ");
-        } else if (isYearBegin && isEveryFourHundredYear) {
+        boolean isYearBegin = year >= yearBeginLeap;     // год больше 1584
+        boolean isEveryFourYear = year % 4 == 0;         // год кратный 4 високосный
+        boolean isEveryOneHundredYear = year % 100 != 0; // год не кратный 100
+        boolean isEveryFourHundredYear = year % 400 == 0; // год кратный 400 високосные
+
+        if (isYearBegin && (isEveryFourYear && isEveryOneHundredYear) || isEveryFourHundredYear) {
             System.out.println(year + " год является високосным ");
         } else {
             System.out.println(year + " год не является високосным ");
@@ -57,47 +56,52 @@ public class Main {
         }
 
         //task5
-        int mouthNumber = 15;
-        switch (mouthNumber) {
-            case 1:
-                System.out.println("Месяц январь относится к зиме");
-                break;
-            case 2:
-                System.out.println("Месяц февраль относится к зиме");
-                break;
-            case 3:
-                System.out.println("Месяц март относится к весне");
-                break;
-            case 4:
-                System.out.println("Месяц апрель относится к весне");
-                break;
-            case 5:
-                System.out.println("Месяц май относится к весне");
-                break;
-            case 6:
-                System.out.println("Месяц июнь относится к лету");
-                break;
-            case 7:
-                System.out.println("Месяц июль относится к лету");
-                break;
-            case 8:
-                System.out.println("Месяц август относится к лету");
-                break;
-            case 9:
-                System.out.println("Месяц сентябрь относится к осени");
-                break;
-            case 10:
-                System.out.println("Месяц октябрь относится к осени");
-                break;
-            case 11:
-                System.out.println("Месяц ноябрь относится к осени");
-                break;
-            case 12:
-                System.out.println("Месяц декабрь относится к зиме");
-                break;
-            default:
-                System.out.println("Месяц не определен, введите номер месяца от 1 до 12");
-                break;
+        int monthNumber = 12;
+
+        if (monthNumber >= 1 || monthNumber <= 12) {
+            switch (monthNumber) {
+                case 1:
+                    System.out.println("Месяц январь относится к зиме");
+                    break;
+                case 2:
+                    System.out.println("Месяц февраль относится к зиме");
+                    break;
+                case 3:
+                    System.out.println("Месяц март относится к весне");
+                    break;
+                case 4:
+                    System.out.println("Месяц апрель относится к весне");
+                    break;
+                case 5:
+                    System.out.println("Месяц май относится к весне");
+                    break;
+                case 6:
+                    System.out.println("Месяц июнь относится к лету");
+                    break;
+                case 7:
+                    System.out.println("Месяц июль относится к лету");
+                    break;
+                case 8:
+                    System.out.println("Месяц август относится к лету");
+                    break;
+                case 9:
+                    System.out.println("Месяц сентябрь относится к осени");
+                    break;
+                case 10:
+                    System.out.println("Месяц октябрь относится к осени");
+                    break;
+                case 11:
+                    System.out.println("Месяц ноябрь относится к осени");
+                    break;
+                case 12:
+                    System.out.println("Месяц декабрь относится к зиме");
+                    break;
+                default:
+                    System.out.println("Месяц не определен");
+                    break;
+            }
+        } else {
+            System.out.println("Месяц не определен, введите номер месяца от 1 до 12");
         }
 
     }
